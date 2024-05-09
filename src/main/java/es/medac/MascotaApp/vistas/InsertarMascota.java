@@ -4,6 +4,17 @@
  */
 package es.medac.MascotaApp.vistas;
 
+import es.medac.MascotaApp.controller.DMLClientes;
+import es.medac.MascotaApp.controller.DMLMascotas;
+import es.medac.MascotaApp.controller.DMLPesos;
+import es.medac.MascotaApp.controller.DMLVacunas;
+import es.medac.MascotaApp.controller.InsertarFichero;
+import es.medac.MascotaApp.vistas.Menu;
+import java.text.SimpleDateFormat;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
 /**
  *
  * @author Usuario
@@ -27,38 +38,38 @@ public class InsertarMascota extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        idMascotaInsert = new javax.swing.JTextField();
+        idClienteInsert = new javax.swing.JTextField();
+        especieInsert = new javax.swing.JTextField();
+        pesoInsert = new javax.swing.JTextField();
+        razaInsert = new javax.swing.JTextField();
+        aliasInsert = new javax.swing.JTextField();
+        vacunasInsert = new javax.swing.JTextField();
+        peloInsert = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
+        insertarMascota = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jLabel13 = new javax.swing.JLabel();
-        jDateChooser3 = new com.toedter.calendar.JDateChooser();
         jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jDateChooser4 = new com.toedter.calendar.JDateChooser();
-        jTextField9 = new javax.swing.JTextField();
+        enfermedadInsert = new javax.swing.JTextField();
+        fechaNacimientoInsert = new com.toedter.calendar.JDateChooser();
+        fechaPesadoInsert = new com.toedter.calendar.JDateChooser();
+        fecha1VacunaInsert = new com.toedter.calendar.JDateChooser();
+        fechaProximaInsert = new com.toedter.calendar.JDateChooser();
         jLabel10 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        insertarxFichero = new javax.swing.JButton();
+        registrarCliente = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -66,181 +77,290 @@ public class InsertarMascota extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        idMascotaInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                idMascotaInsertActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 110, -1));
+        getContentPane().add(idMascotaInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 110, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        idClienteInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                idClienteInsertActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 110, -1));
+        getContentPane().add(idClienteInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 110, -1));
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        especieInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                especieInsertActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 110, -1));
+        getContentPane().add(especieInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 110, -1));
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        pesoInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                pesoInsertActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 110, -1));
-        getContentPane().add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 110, -1));
-        getContentPane().add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 110, -1));
-        getContentPane().add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 110, -1));
-        getContentPane().add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 110, -1));
+        getContentPane().add(pesoInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 110, -1));
+        getContentPane().add(razaInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 160, 110, -1));
+        getContentPane().add(aliasInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 110, -1));
+        getContentPane().add(vacunasInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 110, -1));
+        getContentPane().add(peloInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 110, -1));
 
         jLabel2.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("ID MASCOTA:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, 20));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("ID CLIENTE:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("ALIAS MASCOTA:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("ESPECIE:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(102, 255, 255));
+        jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("RAZA:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 255, 255));
+        jLabel7.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("COLOR DE PELO:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
 
-        jButton1.setBackground(new java.awt.Color(51, 0, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Fecha De Pesado:");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 410, -1, 20));
+
+        jLabel9.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("VACUNACIONES:");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel17.setText("PESO:");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
+
+        insertarMascota.setBackground(new java.awt.Color(51, 0, 51));
+        insertarMascota.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        insertarMascota.setForeground(new java.awt.Color(255, 255, 255));
+        insertarMascota.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-insertar-80.png")); // NOI18N
+        insertarMascota.setText("INSERTAR MASCOTA");
+        insertarMascota.setContentAreaFilled(false);
+        insertarMascota.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        insertarMascota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertarMascotaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(insertarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 280, 60));
+
+        jLabel12.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel12.setText("FECHA DE NACIMIENTO:");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, 20));
+
+        jLabel13.setBackground(new java.awt.Color(204, 204, 255));
+        jLabel13.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel13.setText("Fecha Ultima Vacuna:");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Enfermedad:");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
+
+        enfermedadInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enfermedadInsertActionPerformed(evt);
+            }
+        });
+        getContentPane().add(enfermedadInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 110, -1));
+        getContentPane().add(fechaNacimientoInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 370, 110, -1));
+        getContentPane().add(fechaPesadoInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 110, -1));
+        getContentPane().add(fecha1VacunaInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 450, 110, -1));
+        getContentPane().add(fechaProximaInsert, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 490, 110, -1));
+
+        jLabel10.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Fecha proxima:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 490, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Registrar cliente");
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
+        jButton1.setText("VOLVER AL MENU");
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 170, 160, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 600, -1, 60));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 255, 255));
-        jLabel8.setText("Fecha De Pesado:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, 20));
-
-        jLabel9.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 255, 255));
-        jLabel9.setText("VACUNACIONES:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(153, 255, 255));
-        jLabel17.setText("PESO:");
-        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, -1));
-
-        jButton2.setBackground(new java.awt.Color(51, 0, 51));
-        jButton2.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
+        jButton2.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Menu Mascota");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 160, -1));
-
-        jButton3.setBackground(new java.awt.Color(51, 0, 51));
-        jButton3.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Insertar Mascota");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, 160, -1));
-
-        jButton4.setBackground(new java.awt.Color(51, 0, 51));
-        jButton4.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
-        jButton4.setText("Modificar Mascota");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 120, -1, -1));
-
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Yu Gothic UI Semilight", 3, 24)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Bienvenidos al menú de registro de mascotas");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 500, 80));
-
-        jLabel12.setFont(new java.awt.Font("Segoe UI Black", 3, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(153, 255, 255));
-        jLabel12.setText("FECHA DE NACIMIENTO:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, 20));
-        getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, 110, -1));
-        getContentPane().add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 110, -1));
-
-        jLabel13.setBackground(new java.awt.Color(204, 204, 255));
-        jLabel13.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(102, 204, 255));
-        jLabel13.setText("Fecha Ultima Vacuna");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
-        getContentPane().add(jDateChooser3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 110, -1));
-
-        jLabel14.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(153, 204, 255));
-        jLabel14.setText("Enfermedad:");
-        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 460, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI Black", 2, 14)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(102, 204, 255));
-        jLabel15.setText("Fecha Proxima Vacuna:");
-        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
-        getContentPane().add(jDateChooser4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 420, 120, -1));
-
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
+        jButton2.setText("SALIR");
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 460, 120, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, -1, 60));
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Downloads\\macka-i-pas.jpg")); // NOI18N
-        jLabel10.setText("jLabel10");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 0, 1190, 530));
+        insertarxFichero.setBackground(new java.awt.Color(51, 0, 51));
+        insertarxFichero.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        insertarxFichero.setForeground(new java.awt.Color(255, 255, 255));
+        insertarxFichero.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-insertar-80.png")); // NOI18N
+        insertarxFichero.setText("INSERTAR MASCOTA POR FICHERO");
+        insertarxFichero.setContentAreaFilled(false);
+        insertarxFichero.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        insertarxFichero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertarxFicheroActionPerformed(evt);
+            }
+        });
+        getContentPane().add(insertarxFichero, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 120, -1, 60));
+
+        registrarCliente.setBackground(new java.awt.Color(51, 0, 51));
+        registrarCliente.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        registrarCliente.setForeground(new java.awt.Color(255, 255, 255));
+        registrarCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-registro-80.png")); // NOI18N
+        registrarCliente.setText("REGISTRAR CLIENTE");
+        registrarCliente.setContentAreaFilled(false);
+        registrarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        registrarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarClienteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(registrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, 280, 60));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\macka-i-pas.jpg")); // NOI18N
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void idMascotaInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idMascotaInsertActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_idMascotaInsertActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void especieInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_especieInsertActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_especieInsertActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void pesoInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pesoInsertActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_pesoInsertActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void idClienteInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idClienteInsertActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_idClienteInsertActionPerformed
+
+    private void enfermedadInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enfermedadInsertActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_enfermedadInsertActionPerformed
+
+    /**
+     * 
+     * @param evt 
+     */
+    private void insertarMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarMascotaActionPerformed
+        // TODO add your handling code here:
+        int confirm = 1;
+        DMLMascotas dm = new DMLMascotas();
+        DMLPesos dm1 = new DMLPesos();
+        DMLVacunas dm2 = new DMLVacunas();
+        long FN = fechaNacimientoInsert.getDate().getTime();
+            java.sql.Date sqlFecha = new java.sql.Date(FN);
+        long fp = fechaPesadoInsert.getDate().getTime();
+            java.sql.Date sqlFecha1 = new java.sql.Date(fp);
+        long fv = fecha1VacunaInsert.getDate().getTime();
+            java.sql.Date sqlFecha2 = new java.sql.Date(fv);
+        long fvp = fechaProximaInsert.getDate().getTime();
+            java.sql.Date sqlFecha3 = new java.sql.Date(fvp);
+        if(confirm == 1){
+            dm.insertAll(Integer.parseInt(idMascotaInsert.getText()), Integer.parseInt(idClienteInsert.getText()), 
+                aliasInsert.getText(), especieInsert.getText(), razaInsert.getText(), peloInsert.getText(), sqlFecha, Integer.parseInt(vacunasInsert.getText()));
+            confirm++;
+            if(confirm == 2){
+                dm1.insertAll(Integer.parseInt(idMascotaInsert.getText()), sqlFecha1, Double.parseDouble(pesoInsert.getText()));
+                confirm++;
+                if(confirm == 3){
+                    dm2.insertAll(Integer.parseInt(idMascotaInsert.getText()), sqlFecha2, enfermedadInsert.getText(), sqlFecha3);
+                    confirm++;
+                    if(confirm == 4){
+                        JOptionPane.showMessageDialog(this, "Insersion exitosa");
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Insersion fallida");
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(this, "Insersion fallida");
+                }
+            }else{
+                JOptionPane.showMessageDialog(this, "Insersion fallida");
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Insersion fallida");
+        }
+        
+    }//GEN-LAST:event_insertarMascotaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        setVisible (false);
+        Menu m1 = new Menu();
+        m1.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void registrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarClienteActionPerformed
+        // TODO add your handling code here:
+        setVisible (false);
+        RegistrarCliente r1 = new RegistrarCliente();
+        r1.setVisible(true);
+    }//GEN-LAST:event_registrarClienteActionPerformed
+
+    private void insertarxFicheroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarxFicheroActionPerformed
+        // TODO add your handling code here:
+        InsertarFichero iFichero = new InsertarFichero();
+        JFileChooser jFileChooser = new JFileChooser();
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("TXT & CSV", "txt", "csv");
+        jFileChooser.setFileFilter(filtro);
+        int respuesta = jFileChooser.showOpenDialog(this);
+        if(respuesta == JFileChooser.APPROVE_OPTION){
+            String ruta = jFileChooser.getSelectedFile().getPath();
+            iFichero.insertarArchivoM(ruta);
+        }else{
+            JOptionPane.showMessageDialog(this, "Cancelado // Archivo Incorrecto", "", JOptionPane.ERROR_MESSAGE);
+        }
+    
+
+    }//GEN-LAST:event_insertarxFicheroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -278,17 +398,21 @@ public class InsertarMascota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField aliasInsert;
+    private javax.swing.JTextField enfermedadInsert;
+    private javax.swing.JTextField especieInsert;
+    private com.toedter.calendar.JDateChooser fecha1VacunaInsert;
+    private com.toedter.calendar.JDateChooser fechaNacimientoInsert;
+    private com.toedter.calendar.JDateChooser fechaPesadoInsert;
+    private com.toedter.calendar.JDateChooser fechaProximaInsert;
+    private javax.swing.JTextField idClienteInsert;
+    private javax.swing.JTextField idMascotaInsert;
+    private javax.swing.JButton insertarMascota;
+    private javax.swing.JButton insertarxFichero;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
-    private com.toedter.calendar.JDateChooser jDateChooser3;
-    private com.toedter.calendar.JDateChooser jDateChooser4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -302,14 +426,10 @@ public class InsertarMascota extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField peloInsert;
+    private javax.swing.JTextField pesoInsert;
+    private javax.swing.JTextField razaInsert;
+    private javax.swing.JButton registrarCliente;
+    private javax.swing.JTextField vacunasInsert;
     // End of variables declaration//GEN-END:variables
 }

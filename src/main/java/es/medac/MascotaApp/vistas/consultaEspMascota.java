@@ -6,24 +6,32 @@ package es.medac.MascotaApp.vistas;
 
 import es.medac.MascotaApp.controller.ConexionBD;
 import es.medac.MascotaApp.controller.Consultas;
+import es.medac.MascotaApp.model.Clientes;
 import es.medac.MascotaApp.model.Mascotas;
 import es.medac.MascotaApp.model.Pesos;
 import es.medac.MascotaApp.model.Vacunas;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Usuario
  */
 public class consultaEspMascota extends javax.swing.JFrame {
-    protected Connection conexionBD;
+private Connection conexionBD;
     /**
      * Creates new form consultaEspMascota
      */
     public consultaEspMascota() {
         initComponents();
-        conexionBD = new ConexionBD().getConexion();
     }
 
     /**
@@ -40,53 +48,94 @@ public class consultaEspMascota extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        consultaMascEscp = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        infoConsulta = new javax.swing.JTextArea();
+        infoMascota = new javax.swing.JTextArea();
+        jButton3 = new javax.swing.JButton();
+        idClienteConsultaEsp = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(idMascotaConsultaEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(284, 130, 70, -1));
 
-        jLabel2.setText("Ingrese la ID de la mascota que quiera consultar");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, -1, -1));
+        idMascotaConsultaEsp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idMascotaConsultaEspActionPerformed(evt);
+            }
+        });
+        getContentPane().add(idMascotaConsultaEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 70, -1));
 
-        jButton1.setText("VOLVER AL MENJU");
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel2.setText("ID MASCOTA");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
+        jButton1.setText("MENU");
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
         jLabel3.setText("CONSULTAS ESPECIFICAS");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
+        jButton2.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
         jButton2.setText("SALIR");
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
 
-        jButton3.setText("CONSULTAR");
+        consultaMascEscp.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        consultaMascEscp.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-abajo-60.png")); // NOI18N
+        consultaMascEscp.setText("CONSULTAR MASCOTA");
+        consultaMascEscp.setContentAreaFilled(false);
+        consultaMascEscp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        consultaMascEscp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultaMascEscpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(consultaMascEscp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, 70));
+
+        infoMascota.setColumns(20);
+        infoMascota.setRows(5);
+        jScrollPane1.setViewportView(infoMascota);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 390, 260));
+
+        jButton3.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-abajo-60.png")); // NOI18N
+        jButton3.setText("CONSULTAR CLIENTE");
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, 50));
+        getContentPane().add(idClienteConsultaEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 80, -1));
 
-        infoConsulta.setColumns(20);
-        infoConsulta.setRows(5);
-        jScrollPane1.setViewportView(infoConsulta);
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jLabel4.setText("ID CLIENTE");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 90, -1));
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 226, 390, 250));
-
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\perroTablet.png")); // NOI18N
         jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
 
@@ -105,22 +154,85 @@ public class consultaEspMascota extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void consultaMascEscpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaMascEscpActionPerformed
+        // TODO add your handling code here:     
+        //infoConsultaEsp(Integer.parseInt(idMascotaConsultaEsp.getText()));
+        int id = Integer.parseInt(idMascotaConsultaEsp.getText());
+        Consultas c1 = new Consultas();
+        Object dato[];
+        Object dato1 [] = c1.cVacunasPorId(id);
+        Object dato2 [] = c1.cPesoPorId(id);
+    try {
+        dato = infoMasc(id);
+        Mascotas m1 = new Mascotas(id,(int)dato[0], (String)dato[1], (String)dato[2], (String)dato[3], (String)dato[4], (Date)dato[5], (int)dato[6]);
+        Vacunas v1 = new Vacunas((Date)dato1[0], (String)dato1[1],(Date)dato1[2]);
+        Pesos p1 = new Pesos((Date)dato2[0], (Double)dato2[1]);
+        infoMascota.setText(m1.toString()+v1.toString()+p1.toString());
+        
+    } catch (SQLException ex) {
+        Logger.getLogger(consultaEspMascota.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    }//GEN-LAST:event_consultaMascEscpActionPerformed
+
+    private void idMascotaConsultaEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idMascotaConsultaEspActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idMascotaConsultaEspActionPerformed
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        int id = Integer.parseInt(idClienteConsultaEsp.getText());
         Consultas c1 = new Consultas();
-        int id = Integer.parseInt(idMascotaConsultaEsp.getText());
-        Object[] datos = c1.cMascotaPorId(id);
-        Object[] datos1 = c1.cPesoPorId(id);
-        Object[] datos2 = c1.cVacunasPorId(id);
-        Mascotas m1 = new Mascotas(id,(int)datos[0],(String)datos[1],(String)datos[2],(String)datos[3],(String)datos[4],(Date)datos[5],(int)datos[6]);
-        Pesos p2 = new Pesos();
-        Pesos p1 = new Pesos((Date)datos1[0], (Double)datos1[1]);
-        Vacunas v1 = new Vacunas((Date)datos2[0], (String)datos2[1], (Date)datos2[2]);
-        Vacunas v2 = new Vacunas();
-        infoConsulta.setText(m1.toString()+p2.toString()+v2.toString());
-        
+        Object dato [] = c1.clienteById(id);
+        try{
+            dato = infoCliente(id);
+            Clientes cl = new Clientes(id, (String)dato[0], (String)dato[1], (int)dato[2]);
+            infoMascota.setText(cl.info());
+        } catch (SQLException ex) {
+        Logger.getLogger(consultaEspMascota.class.getName()).log(Level.SEVERE, null, ex);
+    }
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private Object [] infoMasc(int id) throws SQLException{
+       Object [] dato = new Object[7];
+       String sql = "SELECT * FROM mascotas where idMascota = ?;"; 
+       conexionBD = new ConexionBD().getConexion();
+       PreparedStatement st = conexionBD.prepareStatement(sql);
+       st.setInt(1, id);  
+       ResultSet rs = st.executeQuery();
+       while(rs.next()){
+           dato[0] = rs.getInt("idCliente");
+           dato[1] = rs.getString("aliasMascota");
+           dato[2] = rs.getString("especie");
+           dato[3] = rs.getString("raza");
+           dato[4] = rs.getString("colorPelo");
+           dato[5] = rs.getDate("fechaNacimiento");
+           dato[6] = rs.getInt("vacunaciones");        
+       }
+       conexionBD.close();
+       st.close();
+       return dato;
+    }
+    
+    private Object [] infoCliente(int id) throws SQLException{
+        Object [] dato = new Object[3];
+       String sql = "SELECT * FROM clientes where idCliente = ?;"; 
+       conexionBD = new ConexionBD().getConexion();
+       PreparedStatement st = conexionBD.prepareStatement(sql);
+       st.setInt(1, id);  
+       ResultSet rs = st.executeQuery();
+       while(rs.next()){
+           dato[0] = rs.getString("primerApellido");
+           dato[1] = rs.getString("cuentaBanco");
+           dato[2] = rs.getInt("telefono");      
+       }
+       conexionBD.close();
+       st.close();
+       return dato;
+    }
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -157,14 +269,17 @@ public class consultaEspMascota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton consultaMascEscp;
+    private javax.swing.JTextField idClienteConsultaEsp;
     private javax.swing.JTextField idMascotaConsultaEsp;
-    private javax.swing.JTextArea infoConsulta;
+    private javax.swing.JTextArea infoMascota;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

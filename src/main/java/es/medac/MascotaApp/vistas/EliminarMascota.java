@@ -4,21 +4,24 @@
  */
 package es.medac.MascotaApp.vistas;
 
+import es.medac.MascotaApp.controller.ConexionBD;
 import es.medac.MascotaApp.controller.DMLMascotas;
 import java.sql.Connection;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Usuario
  */
 public class EliminarMascota extends javax.swing.JFrame {
-    protected Connection conexionBD;
+    private Connection  conexionBD;
+
     /**
      * Creates new form EliminarMascota
      */
     public EliminarMascota() {
         initComponents();
-        
+        conexionBD = new ConexionBD().getConexion();
     }
 
     /**
@@ -31,68 +34,73 @@ public class EliminarMascota extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        btnEliminarID = new javax.swing.JButton();
+        eliminarXid = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("ELIMINAR POR ID:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        jLabel2.setText("Ingrese el ID de la mascota que desea eliminar");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
 
-        jButton1.setText("ELIMINAR POR ID");
+        btnEliminarID.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-eliminar-80.png")); // NOI18N
+        btnEliminarID.setContentAreaFilled(false);
+        btnEliminarID.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarIDActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnEliminarID, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 200, -1, 60));
+        getContentPane().add(eliminarXid, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 110, -1));
+
+        jButton3.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
+        jButton3.setText("SALIR");
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, -1, 50));
+
+        jButton1.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
+        jButton1.setText("VOLVER AL MENU");
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 50));
 
-        jButton2.setText("ELIMINAR POR ALIAS ");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 110, -1));
-
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 110, -1));
-
-        jLabel3.setText("ELIMINAR POR ALIAS: ");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
-
-        jButton3.setText("SALIR");
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 300));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\rghg4ht4.jpeg")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 470, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void btnEliminarIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+        DMLMascotas dm1 = new DMLMascotas();
+        int respuesta = JOptionPane.showConfirmDialog(this, "¿Desea eliminar esta mascota?", "Eliminacion de mascota", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);   
+        if(respuesta == JOptionPane.YES_OPTION){
+            dm1.deleteIdM(Integer.parseInt(eliminarXid.getText()));
+            JOptionPane.showMessageDialog(this, "Acaba de eliminar una mascota");
+        }else{ 
+        }
+ 
+    }//GEN-LAST:event_btnEliminarIDActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        DMLMascotas m = new DMLMascotas();
-        m.deleteIdM(Integer.parseInt(jTextField1.getText()));
+        setVisible (false);
+        Menu m1 = new Menu();
+        m1.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -131,13 +139,11 @@ public class EliminarMascota extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminarID;
+    private javax.swing.JTextField eliminarXid;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

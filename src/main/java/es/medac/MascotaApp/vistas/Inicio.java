@@ -30,48 +30,61 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        bienvenidoI = new javax.swing.JLabel();
         nombreUsuario = new javax.swing.JTextField();
         contraseñaUsuario = new javax.swing.JPasswordField();
         bIniciar = new javax.swing.JButton();
         bCerrar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 170, 30));
+        getContentPane().add(contraseñaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 170, 30));
 
-        bienvenidoI.setFont(new java.awt.Font("Serif", 3, 48)); // NOI18N
-        bienvenidoI.setText("Bienvenido");
-        getContentPane().add(bienvenidoI, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, -10, 240, 70));
-        getContentPane().add(nombreUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 170, 30));
-        getContentPane().add(contraseñaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 170, 30));
-
-        bIniciar.setFont(new java.awt.Font("Microsoft JhengHei UI", 1, 14)); // NOI18N
+        bIniciar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        bIniciar.setForeground(new java.awt.Color(255, 255, 255));
+        bIniciar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
         bIniciar.setText("Entrar");
+        bIniciar.setContentAreaFilled(false);
+        bIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bIniciarActionPerformed(evt);
             }
         });
-        getContentPane().add(bIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 80, 40));
+        getContentPane().add(bIniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 150, 40));
 
-        bCerrar.setFont(new java.awt.Font("Microsoft JhengHei", 1, 14)); // NOI18N
+        bCerrar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
+        bCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        bCerrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-ventana-60.png")); // NOI18N
         bCerrar.setText("Cerrar ");
+        bCerrar.setContentAreaFilled(false);
+        bCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bCerrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bCerrarActionPerformed(evt);
             }
         });
-        getContentPane().add(bCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 40));
+        getContentPane().add(bCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, 150, 40));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setText("Por favor ingrese sus datos para continuar");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 270, 20));
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-usuario-60.png")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, 50));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\proyectoappmascotas-rappmascotas-05cb878f6fa8\\proyectoappmascotas-rappmascotas-05cb878f6fa8\\MascotaApp\\Imagenes\\fondogrupoanimaless.jpg")); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 560, 370));
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-contraseña-60.png")); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, 50));
+
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Bienvenido");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, -1));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\cat-8415620_640.jpg")); // NOI18N
+        jLabel3.setText("jLabel3");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 640));
 
         pack();
         setLocationRelativeTo(null);
@@ -136,10 +149,11 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bCerrar;
     private javax.swing.JButton bIniciar;
-    private javax.swing.JLabel bienvenidoI;
     private javax.swing.JPasswordField contraseñaUsuario;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField nombreUsuario;
     // End of variables declaration//GEN-END:variables
 }
