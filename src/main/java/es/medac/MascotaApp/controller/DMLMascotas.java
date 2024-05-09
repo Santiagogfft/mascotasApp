@@ -22,7 +22,9 @@ public class DMLMascotas {
         this.conexionBD = new ConexionBD().getConexion();
     }
     /**
-     * 
+     * Este metodo esta diseñado para insertar una mascota nueva en la BD de datos, este ingresara
+     * todos los datos pasados como parametro los cuales son los mismos campos que tiene la tabla
+     * mascotas de la bd
      * @param idMascota
      * @param idCliente
      * @param aliasMascota
@@ -66,8 +68,8 @@ public class DMLMascotas {
         }
     }
     /**
-     * 
-     * @param idMascota 
+     * Este metodo permitira eliminar una mascota mediante el id pasado como parametro
+     * @param idMascota id que permite realizar la eliminación
      * @return  
      */
     public boolean deleteIdM(int idMascota){
@@ -90,7 +92,9 @@ public class DMLMascotas {
         }
     }
     /**
-     * 
+     * Metodo que permite realizar una actualizacion de todos los datos de la mascota con el id pasado como parametro
+     * este actualizara todos los campos de la mascota que coincida con el id, actualizando los anteriores valores por los
+     * nuevos que son pasados como parametro
      * @param idMascota
      * @param idCliente
      * @param aliasMascota
@@ -128,7 +132,8 @@ public class DMLMascotas {
         }
     }
     /**
-     * 
+     * Este metodo sirve para actualizar especificamente el numero de vacunas de una mascota la cual concidira con
+     * el id pasado como parametro
      * @param idM
      * @param vac
      * @return 
@@ -153,7 +158,17 @@ public class DMLMascotas {
             return false;
         }
     }
-    
+    /**
+     * Este metodo se encargara de realizar una actualizacion especifica dependiendo del tipo de dato que sea
+     * tendra tres parametros el cual el primero sera el Id de la mascota la cual se quiere modificar, el segundo sera la
+     * columna de la tabla mascotas que se desea modificar y el tercero el valor generico que tomara, en este caso dependiendo
+     * de la instancia de la que sea el valor realizara un update especifico dependiendo de si es String, Integer, Double, Date y 
+     * en caso de los Date tiene otros dos filtros, uno para cada tabla diferente pues estos actualizan valores de multiples tablas
+     * @param idM id de mascota que se desea modificar
+     * @param col columna de la tabla que se desea modificar
+     * @param T valor generico que sera el que remplace el valor de la columna especificada de la mascota pedida
+     * @return 
+     */
     public boolean updateSpecific(int idM, String col, Object T){
         if(T instanceof String cad){
             try(PreparedStatement pS = conexionBD.prepareStatement("UPDATE MASCOTAS SET "+col+" = ? WHERE idMascota = ?;")){

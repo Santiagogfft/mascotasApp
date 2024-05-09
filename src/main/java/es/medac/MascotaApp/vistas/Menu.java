@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package es.medac.MascotaApp.vistas;
 import es.medac.MascotaApp.controller.ConexionBD;
 import es.medac.MascotaApp.controller.Consultas;
-import es.medac.MascotaApp.model.Mascotas;
-import es.medac.MascotaApp.model.Pesos;
-import es.medac.MascotaApp.model.Vacunas;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -39,11 +32,11 @@ public class Menu extends javax.swing.JFrame {
     private void initComponents() {
 
         menuConquistar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jInformación = new javax.swing.JLabel();
         InsertarMascota = new javax.swing.JButton();
         ModificarMascota = new javax.swing.JButton();
         EliminarMascota = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jMásOpciones = new javax.swing.JLabel();
         MascotaEspecifica = new javax.swing.JButton();
         topPesadas = new javax.swing.JToggleButton();
         topVacunadas = new javax.swing.JButton();
@@ -53,8 +46,8 @@ public class Menu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         infoMenu = new javax.swing.JTable();
         limpiarTabla = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLimpiarTabla = new javax.swing.JLabel();
+        jFondoMenu = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(897, 551));
@@ -63,7 +56,6 @@ public class Menu extends javax.swing.JFrame {
 
         menuConquistar.setBackground(new java.awt.Color(0, 153, 153));
         menuConquistar.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        menuConquistar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-abajo-60.png")); // NOI18N
         menuConquistar.setText("CONSULTAR ");
         menuConquistar.setContentAreaFilled(false);
         menuConquistar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -74,14 +66,14 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(menuConquistar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, 210, 50));
 
-        jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel2.setText("INFORMACION ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 290, 30));
+        jInformación.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
+        jInformación.setForeground(new java.awt.Color(0, 153, 153));
+        jInformación.setText("INFORMACION ");
+        getContentPane().add(jInformación, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, 290, 30));
 
         InsertarMascota.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         InsertarMascota.setForeground(new java.awt.Color(0, 102, 102));
-        InsertarMascota.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-insertar-80.png")); // NOI18N
+        InsertarMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-insertar-80.png"))); // NOI18N
         InsertarMascota.setText("Insertar mascota");
         InsertarMascota.setBorder(null);
         InsertarMascota.setBorderPainted(false);
@@ -96,7 +88,7 @@ public class Menu extends javax.swing.JFrame {
 
         ModificarMascota.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         ModificarMascota.setForeground(new java.awt.Color(0, 102, 102));
-        ModificarMascota.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-modificar-80.png")); // NOI18N
+        ModificarMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-modificar-80.png"))); // NOI18N
         ModificarMascota.setText("Modificar mascota");
         ModificarMascota.setContentAreaFilled(false);
         ModificarMascota.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -109,7 +101,7 @@ public class Menu extends javax.swing.JFrame {
 
         EliminarMascota.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         EliminarMascota.setForeground(new java.awt.Color(0, 102, 102));
-        EliminarMascota.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-eliminar-80.png")); // NOI18N
+        EliminarMascota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-eliminar-80.png"))); // NOI18N
         EliminarMascota.setText("Eliminar mascota");
         EliminarMascota.setContentAreaFilled(false);
         EliminarMascota.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -120,14 +112,14 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(EliminarMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 450, 230, 60));
 
-        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel3.setText("MAS OPCIONES");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 160, 30));
+        jMásOpciones.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jMásOpciones.setForeground(new java.awt.Color(0, 153, 153));
+        jMásOpciones.setText("MAS OPCIONES");
+        getContentPane().add(jMásOpciones, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 160, 30));
 
         MascotaEspecifica.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         MascotaEspecifica.setForeground(new java.awt.Color(0, 102, 102));
-        MascotaEspecifica.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-enlace-externo-80.png")); // NOI18N
+        MascotaEspecifica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-enlace-externo-80.png"))); // NOI18N
         MascotaEspecifica.setText("Consulta especifica");
         MascotaEspecifica.setContentAreaFilled(false);
         MascotaEspecifica.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -140,7 +132,7 @@ public class Menu extends javax.swing.JFrame {
 
         topPesadas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         topPesadas.setForeground(new java.awt.Color(0, 102, 102));
-        topPesadas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-arriba-círculo-80.png")); // NOI18N
+        topPesadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-arriba-círculo-80.png"))); // NOI18N
         topPesadas.setText("Top mascotas pesadas");
         topPesadas.setContentAreaFilled(false);
         topPesadas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -153,7 +145,7 @@ public class Menu extends javax.swing.JFrame {
 
         topVacunadas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         topVacunadas.setForeground(new java.awt.Color(0, 102, 102));
-        topVacunadas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-arriba-círculo-80.png")); // NOI18N
+        topVacunadas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-arriba-círculo-80.png"))); // NOI18N
         topVacunadas.setText("Top mascotas vacunadas");
         topVacunadas.setContentAreaFilled(false);
         topVacunadas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -166,7 +158,7 @@ public class Menu extends javax.swing.JFrame {
 
         menuCerrarSesion.setBackground(new java.awt.Color(0, 153, 153));
         menuCerrarSesion.setFont(new java.awt.Font("Segoe Script", 1, 12)); // NOI18N
-        menuCerrarSesion.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
+        menuCerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-cerrar-sesión-60.png"))); // NOI18N
         menuCerrarSesion.setText("CERRAR SESION");
         menuCerrarSesion.setContentAreaFilled(false);
         menuCerrarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -179,7 +171,7 @@ public class Menu extends javax.swing.JFrame {
 
         menuSalir.setBackground(new java.awt.Color(0, 153, 153));
         menuSalir.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        menuSalir.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
+        menuSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-cerrar-sesión-60.png"))); // NOI18N
         menuSalir.setText("SALIR");
         menuSalir.setContentAreaFilled(false);
         menuSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -192,7 +184,7 @@ public class Menu extends javax.swing.JFrame {
 
         topLivianas.setFont(new java.awt.Font("Segoe UI Light", 1, 14)); // NOI18N
         topLivianas.setForeground(new java.awt.Color(0, 102, 102));
-        topLivianas.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-arriba-círculo-80.png")); // NOI18N
+        topLivianas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-arriba-círculo-80.png"))); // NOI18N
         topLivianas.setText("Top mascotas mas livianas");
         topLivianas.setContentAreaFilled(false);
         topLivianas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -211,7 +203,7 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 880, 210));
 
         limpiarTabla.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        limpiarTabla.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-limpiar-80.png")); // NOI18N
+        limpiarTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-limpiar-80.png"))); // NOI18N
         limpiarTabla.setContentAreaFilled(false);
         limpiarTabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         limpiarTabla.addActionListener(new java.awt.event.ActionListener() {
@@ -221,20 +213,24 @@ public class Menu extends javax.swing.JFrame {
         });
         getContentPane().add(limpiarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, -1, 60));
 
-        jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel4.setText("LIMPIAR TABLA");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, -1, -1));
+        jLimpiarTabla.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jLimpiarTabla.setForeground(new java.awt.Color(0, 153, 153));
+        jLimpiarTabla.setText("LIMPIAR TABLA");
+        getContentPane().add(jLimpiarTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 40, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Documents\\proyectoappmascotas-rappmascotas-05cb878f6fa8\\proyectoappmascotas-rappmascotas-05cb878f6fa8\\MascotaApp\\Imagenes\\HuellasF.jpg")); // NOI18N
-        jLabel1.setMaximumSize(new java.awt.Dimension(897, 551));
-        jLabel1.setMinimumSize(new java.awt.Dimension(897, 551));
-        jLabel1.setPreferredSize(new java.awt.Dimension(897, 551));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 680));
+        jFondoMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/HuellasF.jpg"))); // NOI18N
+        jFondoMenu.setMaximumSize(new java.awt.Dimension(897, 551));
+        jFondoMenu.setMinimumSize(new java.awt.Dimension(897, 551));
+        jFondoMenu.setPreferredSize(new java.awt.Dimension(897, 551));
+        getContentPane().add(jFondoMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 960, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este boton utilizara el codigo infoMenu el cual tiene una consulta que tomara los valores
+     * de las mascotas registradas en la bd
+     * @param evt 
+     */
     private void menuConquistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuConquistarActionPerformed
         try {
             // TODO add your handling code here:
@@ -245,73 +241,109 @@ public class Menu extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_menuConquistarActionPerformed
-
+    /**
+     * Boton que abrira la interfaz para modificar mascotas
+     * @param evt 
+     */
     private void ModificarMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarMascotaActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         ModificarMascota m1 = new ModificarMascota();
         m1.setVisible(true);
     }//GEN-LAST:event_ModificarMascotaActionPerformed
-
+    /**
+     * Boton que abrira la interfaz para eliminar mascotas
+     * @param evt 
+     */
     private void EliminarMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarMascotaActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         EliminarMascota m1 = new EliminarMascota();
         m1.setVisible(true);
     }//GEN-LAST:event_EliminarMascotaActionPerformed
-
+    /**
+     * Boton que abrira la interfaz para insertar mascotas
+     * @param evt 
+     */
     private void InsertarMascotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertarMascotaActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         InsertarMascota m1 = new InsertarMascota();
         m1.setVisible(true);
     }//GEN-LAST:event_InsertarMascotaActionPerformed
-
+    /**
+     *Boton que abrira la interfaz para realizar consultas de mascotas y clientes especificos
+     * @param evt 
+     */
     private void MascotaEspecificaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MascotaEspecificaActionPerformed
         // TODO add your handling code here:
         setVisible(false);
         consultaEspMascota m1 = new consultaEspMascota();
         m1.setVisible(true);
     }//GEN-LAST:event_MascotaEspecificaActionPerformed
-
+    /**
+     * Boton que utilizara el método vacunas que realizara la consulta de las mascotas con más vacunas registradas en la BD
+     * regresando un listado de estas
+     * @param evt 
+     */
     private void topVacunadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topVacunadasActionPerformed
         // TODO add your handling code here:
         Consultas c1 = new Consultas();
         tops(c1.top5vacunados, "VACUNAS");   
     }//GEN-LAST:event_topVacunadasActionPerformed
-
+    /**
+     * Boton para salirse del programa
+     * @param evt 
+     */
     private void menuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSalirActionPerformed
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_menuSalirActionPerformed
-
+    /**
+     * Boton para cerrar sesión y volver a la interfaz inicio
+     * @param evt 
+     */
     private void menuCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuCerrarSesionActionPerformed
         // TODO add your handling code here:
         setVisible (false);
         Inicio m1 = new Inicio();
         m1.setVisible(true);
     }//GEN-LAST:event_menuCerrarSesionActionPerformed
-
+    /**
+     * Boton que utilizara el metodo tops y devolvera la información de la BD de las top mascotas mas livianas en esta
+     * mostrando una lista de estas
+     * @param evt 
+     */
     private void topLivianasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topLivianasActionPerformed
         // TODO add your handling code here:
         Consultas c1 = new Consultas();
         tops(c1.top5livianos, "PESO");
       
     }//GEN-LAST:event_topLivianasActionPerformed
-
+    /**
+     * Metodo que se encargara de limpiar la tabla donde se encuentren los datos consultados
+     * @param evt 
+     */
     private void limpiarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limpiarTablaActionPerformed
         // TODO add your handling code here:
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("");
         infoMenu.setModel(model);
     }//GEN-LAST:event_limpiarTablaActionPerformed
-
+    /**
+     * Boton que devolvera el top de mascotas mas pesadas encontradas en la BD devolviendolas en una lista
+     * @param evt 
+     */
     private void topPesadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topPesadasActionPerformed
         // TODO add your handling code here:
         Consultas c1 = new Consultas();
         tops(c1.top5pesados, "PESO");
     }//GEN-LAST:event_topPesadasActionPerformed
-    
+    /**
+     * Este metodo se encargara de realizar una consulta a la tabla mascotas devolviendo todos los valores/registros
+     * encontrados de estos en la BD
+     * @throws SQLException 
+     */
     private void infoMenu() throws SQLException{
         String sql = "SELECT * FROM mascotas;";
         Statement st;
@@ -437,10 +469,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton MascotaEspecifica;
     private javax.swing.JButton ModificarMascota;
     public javax.swing.JTable infoMenu;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jFondoMenu;
+    private javax.swing.JLabel jInformación;
+    private javax.swing.JLabel jLimpiarTabla;
+    private javax.swing.JLabel jMásOpciones;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton limpiarTabla;
     private javax.swing.JButton menuCerrarSesion;

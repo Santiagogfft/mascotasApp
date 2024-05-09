@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package es.medac.MascotaApp.vistas;
 
 import es.medac.MascotaApp.controller.ConexionBD;
@@ -10,16 +6,13 @@ import es.medac.MascotaApp.model.Clientes;
 import es.medac.MascotaApp.model.Mascotas;
 import es.medac.MascotaApp.model.Pesos;
 import es.medac.MascotaApp.model.Vacunas;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -44,17 +37,17 @@ private Connection conexionBD;
     private void initComponents() {
 
         idMascotaConsultaEsp = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        jIdMascota = new javax.swing.JLabel();
+        jbMenu = new javax.swing.JButton();
+        jTituloConsultasEspecif = new javax.swing.JLabel();
+        jbSalir = new javax.swing.JButton();
         consultaMascEscp = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         infoMascota = new javax.swing.JTextArea();
-        jButton3 = new javax.swing.JButton();
+        jbConsultarCliente = new javax.swing.JButton();
         idClienteConsultaEsp = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jIdCliente = new javax.swing.JLabel();
+        jFondoConsultaEspecifica = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -67,41 +60,41 @@ private Connection conexionBD;
         });
         getContentPane().add(idMascotaConsultaEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 90, 70, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
-        jLabel2.setText("ID MASCOTA");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
+        jIdMascota.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jIdMascota.setText("ID MASCOTA");
+        getContentPane().add(jIdMascota, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
-        jButton1.setText("MENU");
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbMenu.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jbMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-cerrar-sesión-60.png"))); // NOI18N
+        jbMenu.setText("MENU");
+        jbMenu.setContentAreaFilled(false);
+        jbMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, -1));
+        getContentPane().add(jbMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel3.setText("CONSULTAS ESPECIFICAS");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+        jTituloConsultasEspecif.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jTituloConsultasEspecif.setForeground(new java.awt.Color(0, 153, 153));
+        jTituloConsultasEspecif.setText("CONSULTAS ESPECIFICAS");
+        getContentPane().add(jTituloConsultasEspecif, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
-        jButton2.setText("SALIR");
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbSalir.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-cerrar-sesión-60.png"))); // NOI18N
+        jbSalir.setText("SALIR");
+        jbSalir.setContentAreaFilled(false);
+        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
+        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 420, -1, -1));
 
         consultaMascEscp.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        consultaMascEscp.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-abajo-60.png")); // NOI18N
+        consultaMascEscp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-abajo-60.png"))); // NOI18N
         consultaMascEscp.setText("CONSULTAR MASCOTA");
         consultaMascEscp.setContentAreaFilled(false);
         consultaMascEscp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -118,42 +111,52 @@ private Connection conexionBD;
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 390, 260));
 
-        jButton3.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-abajo-60.png")); // NOI18N
-        jButton3.setText("CONSULTAR CLIENTE");
-        jButton3.setContentAreaFilled(false);
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbConsultarCliente.setFont(new java.awt.Font("Segoe Print", 0, 12)); // NOI18N
+        jbConsultarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-abajo-60.png"))); // NOI18N
+        jbConsultarCliente.setText("CONSULTAR CLIENTE");
+        jbConsultarCliente.setContentAreaFilled(false);
+        jbConsultarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbConsultarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbConsultarClienteActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, 50));
+        getContentPane().add(jbConsultarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, -1, 50));
         getContentPane().add(idClienteConsultaEsp, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, 80, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
-        jLabel4.setText("ID CLIENTE");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 90, -1));
+        jIdCliente.setFont(new java.awt.Font("Segoe Print", 0, 14)); // NOI18N
+        jIdCliente.setText("ID CLIENTE");
+        getContentPane().add(jIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 90, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\perroTablet.png")); // NOI18N
-        jLabel1.setText("jLabel1");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
+        jFondoConsultaEspecifica.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/perroTablet.png"))); // NOI18N
+        getContentPane().add(jFondoConsultaEspecifica, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 570));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    /**
+     * Boton que regresa a la interfaz Menu
+     * @param evt 
+     */
+    private void jbMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMenuActionPerformed
         // TODO add your handling code here:
         setVisible (false);
         Menu m1 = new Menu();
         m1.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jbMenuActionPerformed
+    /**
+     * Boton que cierra el programa
+     * @param evt 
+     */
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
+    }//GEN-LAST:event_jbSalirActionPerformed
+    /**
+     * Boton que realiza la consulta especifica de una mascota tomando el id que se le paso en el jTextField y utilizando el metodo
+     * de la clase Consultas para realizar las consultas necesarias y luego creando instancias de las clases necesarias asignando los
+     * valores obtenidos en los constructores para luego asignarles el valor en un jTextArea de estos objetos con el toString
+     * @param evt 
+     */
     private void consultaMascEscpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultaMascEscpActionPerformed
         // TODO add your handling code here:     
         //infoConsultaEsp(Integer.parseInt(idMascotaConsultaEsp.getText()));
@@ -177,8 +180,13 @@ private Connection conexionBD;
     private void idMascotaConsultaEspActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idMascotaConsultaEspActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idMascotaConsultaEspActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    /**
+     * Similar al de la consulta por masocta tomando un id de cliente y retornando los datos del cliente con el id escrito
+     * en el jTextField y creando una clase Clientes y al constructor asignandole los datos obtenidos con los metodos de las clases
+     * consultas para luego agregarlos a un textArea usando el toString de la clase
+     * @param evt 
+     */
+    private void jbConsultarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConsultarClienteActionPerformed
         // TODO add your handling code here:
         int id = Integer.parseInt(idClienteConsultaEsp.getText());
         Consultas c1 = new Consultas();
@@ -190,7 +198,7 @@ private Connection conexionBD;
         } catch (SQLException ex) {
         Logger.getLogger(consultaEspMascota.class.getName()).log(Level.SEVERE, null, ex);
     }
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_jbConsultarClienteActionPerformed
 
     private Object [] infoMasc(int id) throws SQLException{
        Object [] dato = new Object[7];
@@ -273,13 +281,13 @@ private Connection conexionBD;
     private javax.swing.JTextField idClienteConsultaEsp;
     private javax.swing.JTextField idMascotaConsultaEsp;
     private javax.swing.JTextArea infoMascota;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jFondoConsultaEspecifica;
+    private javax.swing.JLabel jIdCliente;
+    private javax.swing.JLabel jIdMascota;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jTituloConsultasEspecif;
+    private javax.swing.JButton jbConsultarCliente;
+    private javax.swing.JButton jbMenu;
+    private javax.swing.JButton jbSalir;
     // End of variables declaration//GEN-END:variables
 }

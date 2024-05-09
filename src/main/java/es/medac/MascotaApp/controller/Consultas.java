@@ -24,9 +24,9 @@ public class Consultas {
     private final String consultaVacunasById = "SELECT fechaVacuna, enfermedad, fechaProxima FROM VACUNAS WHERE idMascota = ?;";
     private final String filtroCliente = "SELECT idCliente FROM CLIENTES WHERE idCliente = ?;";
     private final String consutlaClienteById = "SELECT * FROM CLIENTES WHERE idCliente = ?;";
-    private final String top5vacunados = "SELECT idMascota, idCliente, aliasMascota, vacunaciones FROM MASCOTAS ORDER BY vacunaciones DESC LIMIT 5;";
-    private final String top5pesados = "SELECT M.idMascota, M.idCliente, M.aliasMascota, P.peso FROM MASCOTAS M INNER JOIN PESOS P ON P.idMascota = M.idMascota ORDER BY P.peso DESC LIMIT 5;";
-    private final String top5livianos = "SELECT M.idMascota, M.idCliente, M.aliasMascota, P.peso FROM MASCOTAS M INNER JOIN PESOS P ON P.idMascota = M.idMascota ORDER BY P.peso ASC LIMIT 5;";
+    public final String top5vacunados = "SELECT idMascota, idCliente, aliasMascota, vacunaciones FROM MASCOTAS ORDER BY vacunaciones DESC LIMIT 5;";
+    public final String top5pesados = "SELECT M.idMascota, M.idCliente, M.aliasMascota, P.peso FROM MASCOTAS M INNER JOIN PESOS P ON P.idMascota = M.idMascota ORDER BY P.peso DESC LIMIT 5;";
+    public final String top5livianos = "SELECT M.idMascota, M.idCliente, M.aliasMascota, P.peso FROM MASCOTAS M INNER JOIN PESOS P ON P.idMascota = M.idMascota ORDER BY P.peso ASC LIMIT 5;";
     private final String recuentoXEspecie = "SELECT COUNT(especie) AS cantidad, especie FROM mascotas GROUP BY especie;";
     
     public Consultas(){
@@ -73,7 +73,12 @@ public class Consultas {
         }
         return total;
     }
-    
+    /**
+     * Metodo al cual se le pasa un idM y regresa el numero de vacunas que este tiene registradas en la BD
+     * este devolvera una variable int que seran el valor que se encuentre en la BD en la tabla Mascotas
+     * @param idM idMascota
+     * @return retorna el numero de vacunas que tiene la mascota
+     */
     public int numVacunas(int idM){
         int numVac = 0;
         try(PreparedStatement pS = conexionBD.prepareStatement("SELECT vacunaciones FROM MASCOTAS WHERE idMascota = ?;")){

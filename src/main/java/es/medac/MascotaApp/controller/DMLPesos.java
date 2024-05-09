@@ -23,7 +23,8 @@ public class DMLPesos {
         this.conexionBD = new ConexionBD().getConexion();
     }
     /**
-     * 
+     * Metodo que permite insertar un peso a la tabla pesos de la BD la cual insertara los datos que se 
+     * le pasen por parametro.
      * @param idMascota
      * @param f
      * @param ps
@@ -51,7 +52,8 @@ public class DMLPesos {
         }
     }
     /**
-     * 
+     * Metodo que permite eliminar un peso de la tabla pesos mediante el id de mascota con el que coincida, este no eliminara un 
+     * registro especifico, sirve para eliminar todos los datos de esta mascota
      * @param idMascota 
      * @return  
      */
@@ -74,7 +76,14 @@ public class DMLPesos {
             return false;
         }
     }
-    
+    /**
+     * Metodo que permite actualizar todos los datos de una fila de la tabla pesos de la BD
+     * actualizando los valores del id de mascota con el que coincida pasado como parametro
+     * @param idMascota
+     * @param f
+     * @param ps
+     * @return 
+     */
     public boolean updateAll(int idMascota, Date f, double ps){
         try(PreparedStatement pS = conexionBD.prepareStatement(updateAll)){
             pS.setDate(1, f);

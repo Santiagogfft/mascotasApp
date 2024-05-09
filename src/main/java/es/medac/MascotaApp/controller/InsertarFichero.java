@@ -19,14 +19,20 @@ import java.text.SimpleDateFormat;
 public class InsertarFichero {
     
     protected Connection conexionBD;
+    //Formato para poder pasar los valores String a tipo Date siguiendo el formato establecido
     SimpleDateFormat formato = new SimpleDateFormat("dd/mm/yyyy");
     
-    private final String insertarClientes = "INSERT INTO CLIENTES VALUES ?, ?, ?, ?;";
-    
+    //Conexion a la BD
     public InsertarFichero(){
         this.conexionBD = new ConexionBD().getConexion();
     }
-    
+    /**
+     * Este metodo se le pasara como parametro la ruta del archivo la cual este leera y guardara el numero de Filas encontrados en
+     * este, devolviendo un int del numero de filas encontrados esto con el fin de complementar
+     * otro metodo
+     * @param ruta
+     * @return 
+     */
     public int nF(String ruta){
         int nF = 0;
         try(BufferedReader br = new BufferedReader(new FileReader(new File(ruta)))){
@@ -40,7 +46,13 @@ public class InsertarFichero {
         }
         return nF;
     }
-    
+    /**
+     * Metodo al cual se le pasara como parametro la ruta de un archivo txt o csv, leyendo todos los datos de este archivo y
+     * almacenandolos en una arraybidimensional de tipo object para luego mediante el metodo InsertAll de la clase DMLMascotas
+     * pueda insertar los valores a la tabla mascotas encontrados en el archivo txt o csv.
+     * @param ruta
+     * @return 
+     */
     public boolean insertarArchivoM(String ruta){
         DMLMascotas dmlM1 = new DMLMascotas();
         int i = 0;
@@ -71,7 +83,13 @@ public class InsertarFichero {
             return tr;
         }
     }
-    
+    /**
+     * Este metodo pedira como parametro la ruta de un archivo el cual debera ser txt o csv, el metodo leera el archivo
+     * guardando la informacion encontrada de este dentro de un Array Bidimensional de tipo Object para luego por medio de la
+     * clase DMLClientes con el metodo InsertAll insertar todos los valores encontrados en el archivo txt o csv.
+     * @param ruta
+     * @return 
+     */
     public boolean insertarArchivoC(String ruta){
         DMLClientes dmlC1 = new DMLClientes();
         int i = 0;

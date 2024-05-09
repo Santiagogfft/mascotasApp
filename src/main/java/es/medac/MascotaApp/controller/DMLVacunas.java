@@ -22,7 +22,8 @@ public class DMLVacunas {
         this.conexionBD = new ConexionBD().getConexion();
     }
     /**
-     * 
+     * Este metodo permite insertar valores a la tabla vacunas insertando todos los valores pasados
+     * como parametros a los campos de la tabla vacunas en la BD
      * @param idMascota
      * @param f
      * @param e
@@ -56,7 +57,8 @@ public class DMLVacunas {
         }
     }
     /**
-     * 
+     * Metodo que permite eliminar un registro de la tabla vacunas con la que concida con el ID, este 
+     * metodo esta diseñado para eliminar todos los registros que coincidan con el id, no solo uno en especifico
      * @param idM 
      * @return  
      */
@@ -84,7 +86,8 @@ public class DMLVacunas {
         }
     }
     /**
-     * 
+     * Metodo que permite actualizar todos los datos de la fila que coincida con el id de mascota en la 
+     * tabla vacunas, actualizando los datos de la tabla a los pasados como parametros
      * @param idMascota
      * @param f
      * @param e
@@ -113,7 +116,13 @@ public class DMLVacunas {
             return false;
         }
     }
-    
+    /**
+     * Este metodo sirve para actualizar especificamente el campo fechaProxima de la tabla vacunas, este metodo
+     * no se utiliza más que para complementar otro metodo que si se usa en las interfaces
+     * @param idM
+     * @param fVP
+     * @return 
+     */
     public boolean updateFechaProx(int idM, Date fVP){
         try(PreparedStatement pS = conexionBD.prepareStatement("UPDATE VACUNAS SET fechaProxima = ? WHERE idMascota = ?;")){
             pS.setDate(1, fVP);

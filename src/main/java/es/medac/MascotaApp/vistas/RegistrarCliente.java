@@ -37,18 +37,18 @@ private Connection  conexionBD;
         primerApellidoCliente = new javax.swing.JTextField();
         cuentaBancoCliente = new javax.swing.JTextField();
         telefonoCliente = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        jPrimerApellido = new javax.swing.JLabel();
+        jIdCliente = new javax.swing.JLabel();
+        jCuentaBanco = new javax.swing.JLabel();
+        jTelefono = new javax.swing.JLabel();
         registrarCliente = new javax.swing.JButton();
         modificarCliente = new javax.swing.JButton();
         eliminarCliente = new javax.swing.JButton();
         listaCliente = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        jTituloIntroducirCliente = new javax.swing.JLabel();
+        jbVolver = new javax.swing.JButton();
+        jbSalir = new javax.swing.JButton();
+        jFondoRegistrarCliente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -63,25 +63,25 @@ private Connection  conexionBD;
         getContentPane().add(cuentaBancoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 80, -1));
         getContentPane().add(telefonoCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 80, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        jLabel2.setText("PRIMER APELLIDO");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 120, 20));
+        jPrimerApellido.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jPrimerApellido.setText("PRIMER APELLIDO");
+        getContentPane().add(jPrimerApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 120, 20));
 
-        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        jLabel1.setText("ID CLIENTE");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 80, 20));
+        jIdCliente.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jIdCliente.setText("ID CLIENTE");
+        getContentPane().add(jIdCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 80, 20));
 
-        jLabel3.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        jLabel3.setText("CUENTA DE BANCO");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, 20));
+        jCuentaBanco.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jCuentaBanco.setText("CUENTA DE BANCO");
+        getContentPane().add(jCuentaBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, -1, 20));
 
-        jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        jLabel4.setText("TELEFONO");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 70, 20));
+        jTelefono.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jTelefono.setText("TELEFONO");
+        getContentPane().add(jTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 70, 20));
 
         registrarCliente.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         registrarCliente.setForeground(new java.awt.Color(0, 153, 153));
-        registrarCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-registro-80.png")); // NOI18N
+        registrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-registro-80.png"))); // NOI18N
         registrarCliente.setText("REGISTRAR CLIENTE");
         registrarCliente.setContentAreaFilled(false);
         registrarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -94,7 +94,7 @@ private Connection  conexionBD;
 
         modificarCliente.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         modificarCliente.setForeground(new java.awt.Color(0, 153, 153));
-        modificarCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-modificar-80.png")); // NOI18N
+        modificarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-modificar-80.png"))); // NOI18N
         modificarCliente.setText("MODIFICAR CLIENTE");
         modificarCliente.setContentAreaFilled(false);
         modificarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -107,7 +107,7 @@ private Connection  conexionBD;
 
         eliminarCliente.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
         eliminarCliente.setForeground(new java.awt.Color(0, 153, 153));
-        eliminarCliente.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-eliminar-80.png")); // NOI18N
+        eliminarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-eliminar-80.png"))); // NOI18N
         eliminarCliente.setText("ELIMINAR CLIENTE");
         eliminarCliente.setContentAreaFilled(false);
         eliminarCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -121,42 +121,44 @@ private Connection  conexionBD;
         listaCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID Cliente\t", "Primer apellido", "Cuenta de banco", "Numero Telefonico" }));
         getContentPane().add(listaCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
 
-        jLabel6.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 153, 153));
-        jLabel6.setText("Introduce los datos del cliente");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, -1, -1));
+        jTituloIntroducirCliente.setFont(new java.awt.Font("Segoe Print", 1, 18)); // NOI18N
+        jTituloIntroducirCliente.setForeground(new java.awt.Color(0, 153, 153));
+        jTituloIntroducirCliente.setText("Introduce los datos del cliente");
+        getContentPane().add(jTituloIntroducirCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, -1, -1));
 
-        jButton1.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
-        jButton1.setText("VOLVER");
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbVolver.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jbVolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-cerrar-sesión-60.png"))); // NOI18N
+        jbVolver.setText("VOLVER");
+        jbVolver.setContentAreaFilled(false);
+        jbVolver.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbVolverActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, -1, 50));
+        getContentPane().add(jbVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, -1, 50));
 
-        jButton2.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-ventana-60.png")); // NOI18N
-        jButton2.setText("SALIR");
-        jButton2.setContentAreaFilled(false);
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jbSalir.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jbSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-cerrar-ventana-60.png"))); // NOI18N
+        jbSalir.setText("SALIR");
+        jbSalir.setContentAreaFilled(false);
+        jbSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jbSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 480, -1, 60));
+        getContentPane().add(jbSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 480, -1, 60));
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\dog-5960092_640.jpg")); // NOI18N
-        jLabel5.setText("jLabel5");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 570, 610));
+        jFondoRegistrarCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/dog-5960092_640.jpg"))); // NOI18N
+        getContentPane().add(jFondoRegistrarCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(1, 0, 570, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+ * Boton que se encargara de realizar la insercción de los datos del cliente en la tabla clientes de la BD
+ * @param evt 
+ */
     private void registrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarClienteActionPerformed
         // TODO add your handling code here:
         DMLClientes dm1 = new DMLClientes();
@@ -164,7 +166,11 @@ private Connection  conexionBD;
                 cuentaBancoCliente.getText(), Integer.parseInt(telefonoCliente.getText()));
         JOptionPane.showMessageDialog(this, "Cliente registrado");
     }//GEN-LAST:event_registrarClienteActionPerformed
-
+    /**
+     * Boton que permitira modificar los datos especificados de los valores establecidos del id del cliente pasado
+     * de la tabla clientes de la BD
+     * @param evt 
+     */
     private void modificarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarClienteActionPerformed
         // TODO add your handling code here:
         DMLClientes dm1 = new DMLClientes();
@@ -180,7 +186,11 @@ private Connection  conexionBD;
                 JOptionPane.showMessageDialog(this, "Cliente modificado");
        
     }//GEN-LAST:event_modificarClienteActionPerformed
-
+    /**
+     * Boton que realizara la aeliminacion de un cliente el cual se haya especificado el valor del id del cliente en
+     * la interfaz y avisando con una ventana emergente que el cliente ha sido eliminado
+     * @param evt 
+     */
     private void eliminarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarClienteActionPerformed
         // TODO add your handling code here:
         DMLClientes dm1 = new DMLClientes();
@@ -192,18 +202,24 @@ private Connection  conexionBD;
     private void primerApellidoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_primerApellidoClienteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_primerApellidoClienteActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    /**
+     * Boton para cerrar la aplicacion
+     * @param evt 
+     */
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
         dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbSalirActionPerformed
+    /**
+     * Boton para volver a la interfaz menu
+     * @param evt 
+     */
+    private void jbVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVolverActionPerformed
         // TODO add your handling code here:
         setVisible (false);
         InsertarMascota r1 = new InsertarMascota();
         r1.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jbVolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -244,14 +260,14 @@ private Connection  conexionBD;
     private javax.swing.JTextField cuentaBancoCliente;
     private javax.swing.JButton eliminarCliente;
     private javax.swing.JTextField idCliente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jCuentaBanco;
+    private javax.swing.JLabel jFondoRegistrarCliente;
+    private javax.swing.JLabel jIdCliente;
+    private javax.swing.JLabel jPrimerApellido;
+    private javax.swing.JLabel jTelefono;
+    private javax.swing.JLabel jTituloIntroducirCliente;
+    private javax.swing.JButton jbSalir;
+    private javax.swing.JButton jbVolver;
     private javax.swing.JComboBox<String> listaCliente;
     private javax.swing.JButton modificarCliente;
     private javax.swing.JTextField primerApellidoCliente;

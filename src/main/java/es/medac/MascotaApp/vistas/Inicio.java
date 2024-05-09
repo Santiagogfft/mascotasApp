@@ -34,10 +34,10 @@ public class Inicio extends javax.swing.JFrame {
         contraseñaUsuario = new javax.swing.JPasswordField();
         bIniciar = new javax.swing.JButton();
         bCerrar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jIconUser = new javax.swing.JLabel();
+        jIconPassword = new javax.swing.JLabel();
+        jTituloBienvenido = new javax.swing.JLabel();
+        jFondoInicio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -47,7 +47,7 @@ public class Inicio extends javax.swing.JFrame {
 
         bIniciar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         bIniciar.setForeground(new java.awt.Color(255, 255, 255));
-        bIniciar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-sesión-60.png")); // NOI18N
+        bIniciar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-cerrar-sesión-60.png"))); // NOI18N
         bIniciar.setText("Entrar");
         bIniciar.setContentAreaFilled(false);
         bIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -60,7 +60,6 @@ public class Inicio extends javax.swing.JFrame {
 
         bCerrar.setFont(new java.awt.Font("Segoe Print", 1, 14)); // NOI18N
         bCerrar.setForeground(new java.awt.Color(255, 255, 255));
-        bCerrar.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-cerrar-ventana-60.png")); // NOI18N
         bCerrar.setText("Cerrar ");
         bCerrar.setContentAreaFilled(false);
         bCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -71,25 +70,31 @@ public class Inicio extends javax.swing.JFrame {
         });
         getContentPane().add(bCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 550, 150, 40));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-usuario-60.png")); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, 50));
+        jIconUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-usuario-60.png"))); // NOI18N
+        getContentPane().add(jIconUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, 50));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\icons8-contraseña-60.png")); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, 50));
+        jIconPassword.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/icons8-contraseña-60.png"))); // NOI18N
+        getContentPane().add(jIconPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, 50));
 
-        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Bienvenido");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, -1));
+        jTituloBienvenido.setFont(new java.awt.Font("Segoe Print", 1, 36)); // NOI18N
+        jTituloBienvenido.setForeground(new java.awt.Color(255, 255, 255));
+        jTituloBienvenido.setText("Bienvenido");
+        getContentPane().add(jTituloBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, -1, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Usuario\\Desktop\\cat-8415620_640.jpg")); // NOI18N
-        jLabel3.setText("jLabel3");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 640));
+        jFondoInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img's/cat-8415620_640.jpg"))); // NOI18N
+        jFondoInicio.setText("jLabel3");
+        getContentPane().add(jFondoInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 640));
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Este boton realizara el inicio de sesión tomando los datos de los jTextField para luego instanciar una clase Loggin que
+     * se insertaran los datos obtenidos en el constructor y luego con un if se comprobara si los datos son correctos con el metodo
+     * comprobarUusario, en caso de que sea true realiza la conexion a la BD y indica que el inicio fue correcto con una ventana emergente
+     * y abriendo el menu de la aplicacion en caso contrario arrojara una ventana emergente diciendo que hubo un error al intentar iniciar
+     * @param evt 
+     */
     private void bIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIniciarActionPerformed
         Loggin log1 = new Loggin(nombreUsuario.getText(),contraseñaUsuario.getText());
         if(log1.comprobarUsuario() == true){
@@ -102,7 +107,11 @@ public class Inicio extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Inicio Incorrecto", "Error al Iniciar", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_bIniciarActionPerformed
-
+    /**
+     * Boton que permite salirse del programa, este primero preguntara con una ventana emergente si esta seguro de cerrar la
+     * aplicacion, en caso de que sea Si, este cerrara la aplicacion
+     * @param evt 
+     */
     private void bCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bCerrarActionPerformed
         int respuesta = JOptionPane.showConfirmDialog(this, "¿Desea Salir?", "Confirmar Salida", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
         if(respuesta == JOptionPane.YES_OPTION){
@@ -150,10 +159,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton bCerrar;
     private javax.swing.JButton bIniciar;
     private javax.swing.JPasswordField contraseñaUsuario;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jFondoInicio;
+    private javax.swing.JLabel jIconPassword;
+    private javax.swing.JLabel jIconUser;
+    private javax.swing.JLabel jTituloBienvenido;
     private javax.swing.JTextField nombreUsuario;
     // End of variables declaration//GEN-END:variables
 }

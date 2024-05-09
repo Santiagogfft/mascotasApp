@@ -1,12 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package es.medac.MascotaApp.model;
 
 /**
- *
- * @author Usuario
+ * Esta clase se encargara de crear un filtro para que los usuarios que intenten ingresar el programa
+ * y realizar conexion con la BD deban ingresar un usuario y una contraseña establecidos para poder ingresar, caso contrario
+ * no podran realizaro
  */
 public class Loggin {
     private String usuario;

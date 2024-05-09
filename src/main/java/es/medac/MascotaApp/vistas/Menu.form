@@ -37,9 +37,6 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe Print" size="12" style="0"/>
         </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-abajo-60.png"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="CONSULTAR "/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -55,7 +52,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jInformaci&#xf3;n">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe Print" size="36" style="1"/>
@@ -80,7 +77,7 @@
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-insertar-80.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-insertar-80.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Insertar mascota"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
@@ -110,7 +107,7 @@
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-modificar-80.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-modificar-80.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Modificar mascota"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -136,7 +133,7 @@
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-eliminar-80.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-eliminar-80.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Eliminar mascota"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -153,7 +150,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="jM&#xe1;sOpciones">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe Print" size="18" style="1"/>
@@ -178,7 +175,7 @@
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-enlace-externo-80.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-enlace-externo-80.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Consulta especifica"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -204,7 +201,7 @@
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-arriba-c&#xed;rculo-80.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-arriba-c&#xed;rculo-80.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Top mascotas pesadas"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -230,7 +227,7 @@
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-arriba-c&#xed;rculo-80.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-arriba-c&#xed;rculo-80.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Top mascotas vacunadas"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -256,7 +253,7 @@
           <Font name="Segoe Script" size="12" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-cerrar-sesi&#xf3;n-60.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-cerrar-sesi&#xf3;n-60.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="CERRAR SESION"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -282,7 +279,7 @@
           <Font name="Segoe Print" size="12" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-cerrar-sesi&#xf3;n-60.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-cerrar-sesi&#xf3;n-60.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="SALIR"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -308,7 +305,7 @@
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-arriba-c&#xed;rculo-80.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-arriba-c&#xed;rculo-80.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Top mascotas mas livianas"/>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
@@ -362,7 +359,7 @@
           <Font name="Segoe Print" size="12" style="0"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Desktop\icons8-limpiar-80.png"/>
+          <Image iconType="3" name="/Img&apos;s/icons8-limpiar-80.png"/>
         </Property>
         <Property name="contentAreaFilled" type="boolean" value="false"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
@@ -378,7 +375,7 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JLabel" name="jLimpiarTabla">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe Print" size="12" style="1"/>
@@ -394,10 +391,10 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jFondoMenu">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\Usuario\Documents\proyectoappmascotas-rappmascotas-05cb878f6fa8\proyectoappmascotas-rappmascotas-05cb878f6fa8\MascotaApp\Imagenes\HuellasF.jpg"/>
+          <Image iconType="3" name="/Img&apos;s/HuellasF.jpg"/>
         </Property>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[897, 551]"/>
